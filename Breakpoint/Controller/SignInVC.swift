@@ -10,7 +10,12 @@ import UIKit
 
 class SignInVC: UIViewController {
     // MARK: - Properties
-    private let xButton = UIButton.createButton(withTitle: "", ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), backgroundColorOf: .clear, imageOf: #imageLiteral(resourceName: "close"))
+    private let xButton: UIButton = {
+        let button = UIButton.createButton(withTitle: "", ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), backgroundColorOf: .clear, imageOf: #imageLiteral(resourceName: "close"))
+        button.addTarget(self, action: #selector(xButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     private let signInTitleLabel = UILabel.createLabel(withText: "email sign in", ofSize: 18, ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), ofAlignment: .center)
     private let emailTextField = UITextField.createTextField(withPlaceholderOf: "email")
     private let passwordTextField = UITextField.createTextField(withPlaceholderOf: "password")
@@ -41,5 +46,10 @@ class SignInVC: UIViewController {
         signInStack.setDimension(height: view.heightAnchor, width: view.widthAnchor, heightMultiplier: 0.3, widthMultiplier: 0.85)
         signInStack.anchor(top: xButton.bottomAnchor, paddingTop: 10)
         signInStack.center(x: view.centerXAnchor)
+    }
+    
+    // MARK: - Selector
+    @objc func xButtonPressed() {
+        dismiss(animated: true, completion: nil)
     }
 }

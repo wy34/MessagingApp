@@ -22,6 +22,9 @@ class LoginVC: UIViewController {
     private let loginOptionsContainer: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.2549019608, green: 0.2705882353, blue: 0.3137254902, alpha: 1)
+        view.layer.shadowOpacity = 0.75
+        view.layer.shadowRadius = 5
+        view.layer.shadowColor = UIColor.black.cgColor
         return view
     }()
     
@@ -31,7 +34,7 @@ class LoginVC: UIViewController {
     private let orLabel = UILabel.createLabel(withText: "OR", ofSize: 18, ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), ofAlignment: .center)
     
     private let emailLoginBtn: UIButton = {
-        let button = UIButton.createButton(withTitle: "  by Email", backgroundColorOf: .clear, imageOf: #imageLiteral(resourceName: "emailIcon"))
+        let button = UIButton.createButton(withTitle: " by email", backgroundColorOf: .clear, imageOf: #imageLiteral(resourceName: "emailIcon"))
         button.addTarget(self, action: #selector(emailLoginBtnPressed), for: .touchUpInside)
         return button
     }()
@@ -80,6 +83,8 @@ class LoginVC: UIViewController {
     
     // MARK: - Selector
     @objc func emailLoginBtnPressed() {
-        
+        let vcToGoTo = SignInVC()
+        vcToGoTo.modalPresentationStyle = .fullScreen
+        present(vcToGoTo, animated: true)
     }
 }

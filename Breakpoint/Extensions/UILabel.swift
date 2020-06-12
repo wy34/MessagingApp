@@ -13,6 +13,7 @@ extension UILabel {
         let label = UILabel()
         label.text = text
         label.font = UIFont(name: "Menlo", size: size)
+        label.font = UIFont.systemFont(ofSize: size, weight: .bold)
         label.textColor = color
         label.textAlignment = ofAlignment
         return label
