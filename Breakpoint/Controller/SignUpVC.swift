@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class SignUpVC: UIViewController {
     // MARK: - Properties
     private let backgroundImageView: UIImageView = {
         let iv = UIImageView()
@@ -28,17 +28,16 @@ class LoginVC: UIViewController {
         return view
     }()
     
-    private let loginLabel = UILabel.createLabel(withText: "_login", ofSize: 18, ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), ofAlignment: .center)
-    private let fbLoginBtn = UIButton.createButton(withTitle: "LOGIN WITH FB", backgroundColorOf: #colorLiteral(red: 0.262745098, green: 0.3568627451, blue: 0.568627451, alpha: 1))
-    private let gglLoginBtn = UIButton.createButton(withTitle: "LOGIN WITH G+", backgroundColorOf: #colorLiteral(red: 0.8078431373, green: 0.3294117647, blue: 0.2392156863, alpha: 1))
-    private let orLabel = UILabel.createLabel(withText: "OR", ofSize: 18, ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), ofAlignment: .center)
+    private let loginLabel = UILabel.createLabel(withText: "_login", ofSize: 20, ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), ofAlignment: .center)
+    private lazy var fbLoginBtn = UIButton.createButton(withTitle: "LOGIN WITH FB", backgroundColor: #colorLiteral(red: 0.262745098, green: 0.3568627451, blue: 0.568627451, alpha: 1), vc: self, selector: #selector(fbBtnPressed))
+    private lazy var gglLoginBtn = UIButton.createButton(withTitle: "LOGIN WITH G+", backgroundColor: #colorLiteral(red: 0.8078431373, green: 0.3294117647, blue: 0.2392156863, alpha: 1), vc: self, selector: #selector(gglBtnPressed))
+    private let orLabel = UILabel.createLabel(withText: "OR", ofSize: 20, ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), ofAlignment: .center)
     
-    private let emailLoginBtn: UIButton = {
-        let button = UIButton.createButton(withTitle: " by email", backgroundColorOf: .clear, imageOf: #imageLiteral(resourceName: "emailIcon"))
-        button.addTarget(self, action: #selector(emailLoginBtnPressed), for: .touchUpInside)
+    private lazy var emailLoginBtn: UIButton = {
+        let button = UIButton.createButton(withTitle: " by email", backgroundColor: .clear, image: #imageLiteral(resourceName: "emailIcon"), vc: self, selector: #selector(emailBtnPressed))
+        button.addTarget(self, action: #selector(emailBtnPressed), for: .touchUpInside)
         return button
     }()
-    
     
     private lazy var loginStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [loginLabel, fbLoginBtn, gglLoginBtn, orLabel])
@@ -48,12 +47,15 @@ class LoginVC: UIViewController {
         return stack
     }()
     
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.1607843137, green: 0.168627451, blue: 0.2039215686, alpha: 1)
         anchorElements()
+        configureUI()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     // MARK: - Helper
@@ -81,10 +83,22 @@ class LoginVC: UIViewController {
         loginStack.setDimension(width: loginOptionsContainer.widthAnchor, widthMultiplier: 0.85)
     }
     
+    func configureUI() {
+        navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = #colorLiteral(red: 0.1607843137, green: 0.168627451, blue: 0.2039215686, alpha: 1)
+    }
+    
     // MARK: - Selector
-    @objc func emailLoginBtnPressed() {
+    @objc func emailBtnPressed() {
         let vcToGoTo = SignInVC()
-        vcToGoTo.modalPresentationStyle = .fullScreen
-        present(vcToGoTo, animated: true)
+        navigationController?.pushViewController(vcToGoTo, animated: true)
+    }
+    
+    @objc func fbBtnPressed() {
+        print("fb pressed")
+    }
+    
+    @objc func gglBtnPressed() {
+        print("ggle pressed")
     }
 }

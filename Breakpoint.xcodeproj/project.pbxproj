@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		3D56751E2493FF1A0051BD15 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56751D2493FF1A0051BD15 /* AuthService.swift */; };
+		3D56752024946B550051BD15 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56751F24946B550051BD15 /* UITableView.swift */; };
 		3DBE3CF42491D28300187A19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF32491D28300187A19 /* AppDelegate.swift */; };
 		3DBE3CF62491D28300187A19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF52491D28300187A19 /* SceneDelegate.swift */; };
 		3DBE3CFB2491D28300187A19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF92491D28300187A19 /* Main.storyboard */; };
 		3DBE3CFD2491D28600187A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE3CFC2491D28600187A19 /* Assets.xcassets */; };
 		3DBE3D002491D28600187A19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE3CFE2491D28600187A19 /* LaunchScreen.storyboard */; };
-		3DBE3D0D2491D3DB00187A19 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D0C2491D3DB00187A19 /* TabBarController.swift */; };
-		3DBE3D0F2491D43300187A19 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D0E2491D43200187A19 /* FirstViewController.swift */; };
-		3DBE3D112491D43E00187A19 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D102491D43E00187A19 /* SecondViewController.swift */; };
+		3DBE3D0D2491D3DB00187A19 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D0C2491D3DB00187A19 /* RootTabBarController.swift */; };
+		3DBE3D0F2491D43300187A19 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D0E2491D43200187A19 /* FeedVC.swift */; };
+		3DBE3D112491D43E00187A19 /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D102491D43E00187A19 /* GroupsVC.swift */; };
 		3DBE3D132491D53500187A19 /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D122491D53500187A19 /* UIView+Anchors.swift */; };
 		3DBE3D402492B2C200187A19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE3D3F2492B2C200187A19 /* GoogleService-Info.plist */; };
 		3DBE3D422492B52800187A19 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D412492B52800187A19 /* DataService.swift */; };
-		3DBE3D442492BFB800187A19 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D432492BFB800187A19 /* LoginVC.swift */; };
+		3DBE3D442492BFB800187A19 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D432492BFB800187A19 /* SignUpVC.swift */; };
 		3DBE3D462492C75900187A19 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D452492C75900187A19 /* UILabel.swift */; };
 		3DBE3D482492C8CD00187A19 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D472492C8CD00187A19 /* UIButton.swift */; };
 		3DBE3D4A2492D75500187A19 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3D492492D75500187A19 /* SignInVC.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		163A7A25A93D3287FDB39209 /* Pods-Breakpoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breakpoint.release.xcconfig"; path = "Target Support Files/Pods-Breakpoint/Pods-Breakpoint.release.xcconfig"; sourceTree = "<group>"; };
 		3D56751D2493FF1A0051BD15 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3D56751F24946B550051BD15 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		3DBE3CF02491D28300187A19 /* Breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBE3CF32491D28300187A19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DBE3CF52491D28300187A19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,13 +39,13 @@
 		3DBE3CFC2491D28600187A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DBE3CFF2491D28600187A19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DBE3D012491D28600187A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DBE3D0C2491D3DB00187A19 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		3DBE3D0E2491D43200187A19 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		3DBE3D102491D43E00187A19 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		3DBE3D0C2491D3DB00187A19 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		3DBE3D0E2491D43200187A19 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		3DBE3D102491D43E00187A19 /* GroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsVC.swift; sourceTree = "<group>"; };
 		3DBE3D122491D53500187A19 /* UIView+Anchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
 		3DBE3D3F2492B2C200187A19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DBE3D412492B52800187A19 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		3DBE3D432492BFB800187A19 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		3DBE3D432492BFB800187A19 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3DBE3D452492C75900187A19 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		3DBE3D472492C8CD00187A19 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		3DBE3D492492D75500187A19 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -113,11 +115,11 @@
 		3DBE3D072491D36A00187A19 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3DBE3D432492BFB800187A19 /* LoginVC.swift */,
+				3DBE3D432492BFB800187A19 /* SignUpVC.swift */,
 				3DBE3D492492D75500187A19 /* SignInVC.swift */,
-				3DBE3D0C2491D3DB00187A19 /* TabBarController.swift */,
-				3DBE3D0E2491D43200187A19 /* FirstViewController.swift */,
-				3DBE3D102491D43E00187A19 /* SecondViewController.swift */,
+				3DBE3D0C2491D3DB00187A19 /* RootTabBarController.swift */,
+				3DBE3D0E2491D43200187A19 /* FeedVC.swift */,
+				3DBE3D102491D43E00187A19 /* GroupsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -143,6 +145,7 @@
 				3DBE3D452492C75900187A19 /* UILabel.swift */,
 				3DBE3D472492C8CD00187A19 /* UIButton.swift */,
 				3DBE3D4B2492D85300187A19 /* UITextField.swift */,
+				3D56751F24946B550051BD15 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,9 +283,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DBE3D0D2491D3DB00187A19 /* TabBarController.swift in Sources */,
+				3DBE3D0D2491D3DB00187A19 /* RootTabBarController.swift in Sources */,
 				3DBE3D422492B52800187A19 /* DataService.swift in Sources */,
-				3DBE3D442492BFB800187A19 /* LoginVC.swift in Sources */,
+				3DBE3D442492BFB800187A19 /* SignUpVC.swift in Sources */,
 				3DBE3D132491D53500187A19 /* UIView+Anchors.swift in Sources */,
 				3DBE3D462492C75900187A19 /* UILabel.swift in Sources */,
 				3DBE3D482492C8CD00187A19 /* UIButton.swift in Sources */,
@@ -290,9 +293,10 @@
 				3DBE3D4A2492D75500187A19 /* SignInVC.swift in Sources */,
 				3DBE3CF42491D28300187A19 /* AppDelegate.swift in Sources */,
 				3DBE3CF62491D28300187A19 /* SceneDelegate.swift in Sources */,
-				3DBE3D112491D43E00187A19 /* SecondViewController.swift in Sources */,
-				3DBE3D0F2491D43300187A19 /* FirstViewController.swift in Sources */,
+				3DBE3D112491D43E00187A19 /* GroupsVC.swift in Sources */,
+				3DBE3D0F2491D43300187A19 /* FeedVC.swift in Sources */,
 				3DBE3D4C2492D85300187A19 /* UITextField.swift in Sources */,
+				3D56752024946B550051BD15 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

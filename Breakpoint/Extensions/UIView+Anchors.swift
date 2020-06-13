@@ -62,4 +62,15 @@ extension UIView {
             widthAnchor.constraint(equalTo: width, multiplier: widthMultiplier).isActive = true
         }
     }
+    
+    static func createHeaderView(withTitle title: String) -> UIView {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.1607843137, green: 0.168627451, blue: 0.2039215686, alpha: 1)
+        
+        let label = UILabel.createLabel(withText: title, ofSize: 20, ofColor: #colorLiteral(red: 0.5607843137, green: 0.8117647059, blue: 0.3058823529, alpha: 1), ofAlignment: .center)
+        view.addSubview(label)
+        label.center(x: view.centerXAnchor, y: view.centerYAnchor, yPadding: 15)
+        
+        return view
+    }
 }
