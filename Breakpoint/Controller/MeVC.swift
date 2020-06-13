@@ -22,14 +22,7 @@ class MeVC: UIViewController {
         return view
     }()
     
-    private let profileImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "defaultProfileImage")
-        iv.contentMode = .scaleAspectFill
-        iv.clipsToBounds = true
-        return iv
-    }()
-    
+    private let profileImageView = UIImageView.createImageView(withImage: #imageLiteral(resourceName: "defaultProfileImage"))
     private let emailLabel = UILabel.createLabel(withText: "user@breakpoint.com", ofSize: 20, ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), ofAlignment: .center)
     private let meTable = UITableView.createBasicTableView(withReuseId: reuseIdentifier)
     

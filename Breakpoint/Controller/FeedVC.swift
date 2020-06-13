@@ -40,7 +40,9 @@ class FeedVC: UIViewController {
     
     // MARK: - Selectors
     @objc func composeBtnPressed() {
-    
+        let vcToGoTo = PostVC()
+        vcToGoTo.modalPresentationStyle = .fullScreen
+        present(vcToGoTo, animated: true)
     }
 }
 

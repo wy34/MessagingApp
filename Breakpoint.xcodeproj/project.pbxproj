@@ -10,6 +10,8 @@
 		3D56751E2493FF1A0051BD15 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56751D2493FF1A0051BD15 /* AuthService.swift */; };
 		3D56752024946B550051BD15 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56751F24946B550051BD15 /* UITableView.swift */; };
 		3D56752324946F4B0051BD15 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56752224946F4B0051BD15 /* MeVC.swift */; };
+		3D567525249480700051BD15 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D567524249480700051BD15 /* PostVC.swift */; };
+		3D567527249483930051BD15 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D567526249483920051BD15 /* UIImageView.swift */; };
 		3DBE3CF42491D28300187A19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF32491D28300187A19 /* AppDelegate.swift */; };
 		3DBE3CF62491D28300187A19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF52491D28300187A19 /* SceneDelegate.swift */; };
 		3DBE3CFB2491D28300187A19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF92491D28300187A19 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		3D56751D2493FF1A0051BD15 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3D56751F24946B550051BD15 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		3D56752224946F4B0051BD15 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		3D567524249480700051BD15 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		3D567526249483920051BD15 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3DBE3CF02491D28300187A19 /* Breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBE3CF32491D28300187A19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DBE3CF52491D28300187A19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				3D56752124946F380051BD15 /* Authentication */,
 				3DBE3D0C2491D3DB00187A19 /* RootTabBarController.swift */,
 				3DBE3D0E2491D43200187A19 /* FeedVC.swift */,
+				3D567524249480700051BD15 /* PostVC.swift */,
 				3DBE3D102491D43E00187A19 /* GroupsVC.swift */,
 				3D56752224946F4B0051BD15 /* MeVC.swift */,
 			);
@@ -157,6 +162,7 @@
 				3DBE3D472492C8CD00187A19 /* UIButton.swift */,
 				3DBE3D4B2492D85300187A19 /* UITextField.swift */,
 				3D56751F24946B550051BD15 /* UITableView.swift */,
+				3D567526249483920051BD15 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				3DBE3D132491D53500187A19 /* UIView+Anchors.swift in Sources */,
 				3DBE3D462492C75900187A19 /* UILabel.swift in Sources */,
 				3DBE3D482492C8CD00187A19 /* UIButton.swift in Sources */,
+				3D567525249480700051BD15 /* PostVC.swift in Sources */,
 				3D56751E2493FF1A0051BD15 /* AuthService.swift in Sources */,
 				3DBE3D4A2492D75500187A19 /* SignInVC.swift in Sources */,
 				3DBE3CF42491D28300187A19 /* AppDelegate.swift in Sources */,
@@ -308,6 +315,7 @@
 				3DBE3D112491D43E00187A19 /* GroupsVC.swift in Sources */,
 				3DBE3D0F2491D43300187A19 /* FeedVC.swift in Sources */,
 				3DBE3D4C2492D85300187A19 /* UITextField.swift in Sources */,
+				3D567527249483930051BD15 /* UIImageView.swift in Sources */,
 				3D56752024946B550051BD15 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
