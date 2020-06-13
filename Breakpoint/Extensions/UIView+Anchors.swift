@@ -39,7 +39,7 @@ extension UIView {
         }
     }
     
-    func center(x: NSLayoutXAxisAnchor? = nil, y: NSLayoutYAxisAnchor? = nil, xPadding: CGFloat = 0, yPadding: CGFloat = 0) {
+    func centerWithConstant(x: NSLayoutXAxisAnchor? = nil, y: NSLayoutYAxisAnchor? = nil, xPadding: CGFloat = 0, yPadding: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         
         if let x = x {
@@ -49,6 +49,16 @@ extension UIView {
         if let y = y {
             centerYAnchor.constraint(equalTo: y, constant: yPadding).isActive = true
         }
+    }
+    
+    func centerX(to view: UIView, withMultiplierOf multiplier: CGFloat, andConstantOf constant: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: multiplier, constant: constant).isActive = true
+    }
+    
+    func centerY(to view: UIView, withMultiplierOf multiplier: CGFloat, andConstantOf constant: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: multiplier, constant: constant).isActive = true
     }
     
     func setDimension(height: NSLayoutDimension? = nil, width: NSLayoutDimension? = nil, heightMultiplier: CGFloat = 1, widthMultiplier: CGFloat = 1) {
@@ -69,7 +79,7 @@ extension UIView {
         
         let label = UILabel.createLabel(withText: title, ofSize: 20, ofColor: #colorLiteral(red: 0.5607843137, green: 0.8117647059, blue: 0.3058823529, alpha: 1), ofAlignment: .center)
         view.addSubview(label)
-        label.center(x: view.centerXAnchor, y: view.centerYAnchor, yPadding: 15)
+        label.centerWithConstant(x: view.centerXAnchor, y: view.centerYAnchor, yPadding: 10)
         
         return view
     }

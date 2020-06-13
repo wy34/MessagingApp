@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 private let reuseIdentifier = "FeedCellIdentifier"
 
@@ -28,11 +27,11 @@ class FeedVC: UIViewController {
     // MARK: - Helper
     func anchorElements() {
         view.addSubview(headerView)
-        headerView.setDimension(height: view.heightAnchor, heightMultiplier: 0.13)
+        headerView.setDimension(height: view.heightAnchor, heightMultiplier: 0.1)
         headerView.anchor(top: view.topAnchor, right: view.rightAnchor, left: view.leftAnchor)
         
         headerView.addSubview(composeBtn)
-        composeBtn.center(y: headerView.centerYAnchor, yPadding: 15)
+        composeBtn.centerWithConstant(y: headerView.centerYAnchor, yPadding: 10)
         composeBtn.anchor(right: headerView.rightAnchor, paddingRight: 25)
         
         view.addSubview(feedTable)
@@ -41,18 +40,9 @@ class FeedVC: UIViewController {
     
     // MARK: - Selectors
     @objc func composeBtnPressed() {
-        do {
-            try Auth.auth().signOut()
-            let vc = SignUpVC()
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            self.present(nav, animated: true)
-        } catch {
-            print(error)
-        }
+    
     }
 }
-
 
 // MARK: - UITableView delegate methods
 extension FeedVC: UITableViewDelegate, UITableViewDataSource {

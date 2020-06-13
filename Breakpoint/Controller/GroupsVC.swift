@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "groupCellIdentifier"
+private let reuseIdentifier = "GroupCellIdentifier"
 
 class GroupsVC: UIViewController {
     // MARK: - Properties
@@ -27,11 +27,11 @@ class GroupsVC: UIViewController {
     // MARK: - Helper
     func anchorElements() {
         view.addSubview(headerView)
-        headerView.setDimension(height: view.heightAnchor, heightMultiplier: 0.13)
+        headerView.setDimension(height: view.heightAnchor, heightMultiplier: 0.1)
         headerView.anchor(top: view.topAnchor, right: view.rightAnchor, left: view.leftAnchor)
         
         headerView.addSubview(addGroupBtn)
-        addGroupBtn.center(y: headerView.centerYAnchor, yPadding: 15)
+        addGroupBtn.centerWithConstant(y: headerView.centerYAnchor, yPadding: 10)
         addGroupBtn.anchor(right: headerView.rightAnchor, paddingRight: 25)
         
         view.addSubview(groupTable)

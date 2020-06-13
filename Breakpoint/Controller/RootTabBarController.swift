@@ -20,7 +20,10 @@ class RootTabBarController: UIViewController {
         let secondVC = GroupsVC()
         secondVC.tabBarItem = UITabBarItem(title: "Groups", image: #imageLiteral(resourceName: "groups-tabIcon"), tag: 1)
         
-        tb.viewControllers = [firstVC, secondVC]
+        let thirdVC = MeVC()
+        thirdVC.tabBarItem = UITabBarItem(title: "Me", image: #imageLiteral(resourceName: "me-tabIcon"), tag: 2)
+        
+        tb.viewControllers = [firstVC, secondVC, thirdVC]
         tb.tabBar.barTintColor = #colorLiteral(red: 0.2549019608, green: 0.2705882353, blue: 0.3137254902, alpha: 1)
         tb.tabBar.tintColor = #colorLiteral(red: 0.5607843137, green: 0.8117647059, blue: 0.3058823529, alpha: 1)
         return tb

@@ -46,7 +46,7 @@ class SignInVC: UIViewController {
         view.addSubview(signInStack)
         signInStack.setDimension(height: view.heightAnchor, width: view.widthAnchor, heightMultiplier: 0.3, widthMultiplier: 0.85)
         signInStack.anchor(top: xButton.bottomAnchor, paddingTop: 10)
-        signInStack.center(x: view.centerXAnchor)
+        signInStack.centerWithConstant(x: view.centerXAnchor)
     }
     
     // MARK: - Selector

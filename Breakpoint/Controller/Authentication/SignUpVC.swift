@@ -66,20 +66,20 @@ class SignUpVC: UIViewController {
         
         view.addSubview(titleLabel)
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 25)
-        titleLabel.center(x: view.centerXAnchor)
+        titleLabel.centerWithConstant(x: view.centerXAnchor)
         
         view.addSubview(loginOptionsContainer)
         loginOptionsContainer.setDimension(height: view.heightAnchor, width: view.widthAnchor, heightMultiplier: 0.55, widthMultiplier: 0.95)
-        loginOptionsContainer.center(x: view.centerXAnchor, y: view.centerYAnchor)
+        loginOptionsContainer.centerWithConstant(x: view.centerXAnchor, y: view.centerYAnchor)
         
         loginOptionsContainer.addSubview(emailLoginBtn)
         emailLoginBtn.anchor(bottom: loginOptionsContainer.bottomAnchor, paddingBottom: 15)
-        emailLoginBtn.center(x: loginOptionsContainer.centerXAnchor, y: loginOptionsContainer.centerYAnchor)
+        emailLoginBtn.centerWithConstant(x: loginOptionsContainer.centerXAnchor, y: loginOptionsContainer.centerYAnchor)
         emailLoginBtn.setDimension(height: loginOptionsContainer.heightAnchor, heightMultiplier: 0.1)
         
         loginOptionsContainer.addSubview(loginStack)
         loginStack.anchor(top: loginOptionsContainer.topAnchor, bottom: emailLoginBtn.topAnchor, paddingTop: 15, paddingBottom: -4)
-        loginStack.center(x: loginOptionsContainer.centerXAnchor)
+        loginStack.centerWithConstant(x: loginOptionsContainer.centerXAnchor)
         loginStack.setDimension(width: loginOptionsContainer.widthAnchor, widthMultiplier: 0.85)
     }
     
