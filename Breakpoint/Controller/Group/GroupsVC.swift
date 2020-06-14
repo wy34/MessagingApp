@@ -40,7 +40,9 @@ class GroupsVC: UIViewController {
     
     // MARK: - Selector
     @objc func addBtnPressed() {
-        
+        let vcToGoTo = CreateGroupVC()
+        vcToGoTo.modalPresentationStyle = .fullScreen
+        present(vcToGoTo, animated: true)
     }
 }
 
