@@ -14,7 +14,7 @@ class GroupsVC: UIViewController {
     // MARK: - Properties
     private let headerView = UIView.createHeaderView(withTitle: "_groups")
     private lazy var addGroupBtn = UIButton.createButton(withTitle: "", backgroundColor: .clear, image: #imageLiteral(resourceName: "addNewIcon"), vc: self, selector: #selector(addBtnPressed))
-    private let groupTable = UITableView.createBasicTableView(withReuseId: reuseIdentifier)
+    private let groupTable = UITableView.createBasicTableView(reuseId: reuseIdentifier)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

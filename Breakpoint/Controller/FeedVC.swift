@@ -14,7 +14,7 @@ class FeedVC: UIViewController {
     // MARK: - Properties
     private let headerView = UIView.createHeaderView(withTitle: "_feed")
     private lazy var composeBtn = UIButton.createButton(withTitle: "", backgroundColor: .clear, image: #imageLiteral(resourceName: "compose"), vc: self, selector: #selector(composeBtnPressed))
-    private let feedTable = UITableView.createBasicTableView(withReuseId: reuseIdentifier)
+    private let feedTable = UITableView.createBasicTableView(withCellClass: FeedCell.self, reuseId: reuseIdentifier)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -54,7 +54,6 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)"
         return cell
     }
 }

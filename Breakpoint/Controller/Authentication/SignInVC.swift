@@ -66,13 +66,13 @@ class SignInVC: UIViewController {
             }
         }
         
-//        AuthService.instance.registerUser(withEmail: email, andPassword: password) { (success, error) in
-//            if success {
-//                self.dismiss(animated: true, completion: nil)
-//            } else {
-//                print("Error registering from sign in")
-//            }
-//        }
+        AuthService.instance.registerUser(withEmail: email, andPassword: password) { (success, error) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print("Error registering from sign in")
+            }
+        }
     }
 }
 

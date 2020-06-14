@@ -7,20 +7,22 @@
 //
 
 import UIKit
+import Firebase
 
 class PostVC: UIViewController {
     // MARK: - Properties
     private let headerView = UIView.createHeaderView(withTitle: "_postsomething")
     private lazy var xButton = UIButton.createButton(withTitle: "", ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1), backgroundColor: .clear, image: #imageLiteral(resourceName: "close"), vc: self, selector: #selector(xBtnPressed))
-    private let userImage = UIImageView.createImageView(withImage: #imageLiteral(resourceName: "animal_1"))
+    private let userImage = UIImageView.createImageView(withImage: #imageLiteral(resourceName: "defaultProfileImage"))
     private let userEmailLabel = UILabel.createLabel(withText: "user@breakpoint.com", ofSize: 20, ofColor: #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1))
     
-    private let messageInputField: UITextView = {
+    private lazy var messageInputField: UITextView = {
         let tv = UITextView()
-        tv.text = "Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...Say something here...vSay something here...Say something here...Say something here...Say something here...Say something here...Say something here..."
+        tv.text = "Say something here..."
         tv.textColor = #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1)
         tv.font = UIFont(name: "Menlo", size: 20)
         tv.backgroundColor = .clear
+        tv.backgroundColor = .red
         return tv
     }()
     
@@ -30,7 +32,13 @@ class PostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         anchorElements()
+        messageInputField.delegate = self
         view.backgroundColor = #colorLiteral(red: 0.2549019608, green: 0.2705882353, blue: 0.3137254902, alpha: 1)
+        sendButton.bindToKeyboard()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - Helper
@@ -50,9 +58,9 @@ class PostVC: UIViewController {
         view.addSubview(userEmailLabel)
         userEmailLabel.anchor(top: headerView.bottomAnchor, right: view.rightAnchor, left: userImage.rightAnchor, paddingTop: 15, paddingRight: 15, paddingLeft: 15)
         userEmailLabel.setDimension(height: view.widthAnchor, heightMultiplier: 0.2)
-
+        
         view.addSubview(messageInputField)
-        messageInputField.setDimension(height: view.heightAnchor, heightMultiplier: 0.63)
+        messageInputField.setDimension(height: view.heightAnchor, heightMultiplier: 0.65)
         messageInputField.anchor(top: userEmailLabel.bottomAnchor, right: view.rightAnchor, left: view.leftAnchor, paddingTop: 20, paddingRight: 15, paddingLeft: 15)
         
         view.addSubview(sendButton)
@@ -65,6 +73,24 @@ class PostVC: UIViewController {
     }
     
     @objc func sendBtnPressed() {
-        
+        if messageInputField.text != nil && messageInputField.text != "Say something here..." {
+            sendButton.isEnabled = false
+            DataService.instance.uploadPost(withMessage: messageInputField.text, forUID: Auth.auth().currentUser!.uid, withGroupKey: nil) { (isComplete) in
+                if isComplete {
+                    self.sendButton.isEnabled = true
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    self.sendButton.isEnabled = false
+                    print("Error posting message")
+                }
+            }
+        }
+    }
+}
+
+// MARK: - UITextView delegate methods
+extension PostVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        messageInputField.text = ""
     }
 }

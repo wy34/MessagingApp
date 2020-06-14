@@ -9,9 +9,9 @@
 import UIKit
 
 extension UITableView {
-    static func createBasicTableView(withReuseId reuseId: String, andBackgroundColorOf bgColor: UIColor = #colorLiteral(red: 0.2549019608, green: 0.2705882353, blue: 0.3137254902, alpha: 1)) -> UITableView {
+    static func createBasicTableView(withCellClass cellClass: AnyClass = UITableViewCell.self, reuseId reuseId: String, andBackgroundColorOf bgColor: UIColor = #colorLiteral(red: 0.2549019608, green: 0.2705882353, blue: 0.3137254902, alpha: 1)) -> UITableView {
         let tv = UITableView()
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
+        tv.register(cellClass, forCellReuseIdentifier: reuseId)
         tv.backgroundColor = bgColor
         return tv
     }

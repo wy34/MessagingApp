@@ -13,13 +13,13 @@ class AuthService {
     static let instance = AuthService()
     
     func registerUser(withEmail email: String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: email) { (result, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             guard let user = result?.user else {
                 userCreationComplete(false, error)
                 return
             }
             
-            let userData = ["provider": user.providerID, "email": user.email]
+            let userData = ["provider": user.providerID, "email": user.email, "password": password]
             DataService.instance.createDBUser(uid: user.uid, userData: userData)
             userCreationComplete(true, nil)
         }
