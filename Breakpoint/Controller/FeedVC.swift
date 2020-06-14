@@ -12,6 +12,7 @@ private let reuseIdentifier = "FeedCellIdentifier"
 
 class FeedVC: UIViewController {
     // MARK: - Properties
+    var messageArray = [Message]()
     private let headerView = UIView.createHeaderView(withTitle: "_feed")
     private lazy var composeBtn = UIButton.createButton(withTitle: "", backgroundColor: .clear, image: #imageLiteral(resourceName: "compose"), vc: self, selector: #selector(composeBtnPressed))
     private let feedTable = UITableView.createBasicTableView(withCellClass: FeedCell.self, reuseId: reuseIdentifier)
@@ -22,6 +23,14 @@ class FeedVC: UIViewController {
         anchorElements()
         feedTable.delegate = self
         feedTable.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DataService.instance.getAllFeedMessages { returnedMessageArray in
+            self.messageArray = returnedMessageArray
+            self.feedTable.reloadData()
+        }
     }
     
     // MARK: - Helper
@@ -49,11 +58,14 @@ class FeedVC: UIViewController {
 // MARK: - UITableView delegate methods
 extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return messageArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? FeedCell else { return UITableViewCell() }
+        let image = UIImage(named: "defaultProfileImage")
+        let message = messageArray[indexPath.row]
+        cell.configureCell(profileImage: image!, email: message.senderId, content: message.content)
         return cell
     }
 }

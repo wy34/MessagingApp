@@ -13,6 +13,7 @@
 		3D567525249480700051BD15 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D567524249480700051BD15 /* PostVC.swift */; };
 		3D567527249483930051BD15 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D567526249483920051BD15 /* UIImageView.swift */; };
 		3DA7ECFE24957CB5000311E5 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECFD24957CB5000311E5 /* FeedCell.swift */; };
+		3DA7ED002495BC28000311E5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECFF2495BC28000311E5 /* Message.swift */; };
 		3DBE3CF42491D28300187A19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF32491D28300187A19 /* AppDelegate.swift */; };
 		3DBE3CF62491D28300187A19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF52491D28300187A19 /* SceneDelegate.swift */; };
 		3DBE3CFB2491D28300187A19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE3CF92491D28300187A19 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		3D567524249480700051BD15 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		3D567526249483920051BD15 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3DA7ECFD24957CB5000311E5 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		3DA7ECFF2495BC28000311E5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		3DBE3CF02491D28300187A19 /* Breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBE3CF32491D28300187A19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DBE3CF52491D28300187A19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		3DBE3D092491D38200187A19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DA7ECFF2495BC28000311E5 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				3DBE3D462492C75900187A19 /* UILabel.swift in Sources */,
 				3DBE3D482492C8CD00187A19 /* UIButton.swift in Sources */,
 				3D567525249480700051BD15 /* PostVC.swift in Sources */,
+				3DA7ED002495BC28000311E5 /* Message.swift in Sources */,
 				3D56751E2493FF1A0051BD15 /* AuthService.swift in Sources */,
 				3DBE3D4A2492D75500187A19 /* SignInVC.swift in Sources */,
 				3DBE3CF42491D28300187A19 /* AppDelegate.swift in Sources */,
