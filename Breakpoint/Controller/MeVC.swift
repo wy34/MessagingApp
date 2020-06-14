@@ -34,6 +34,11 @@ class MeVC: UIViewController {
         meTable.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.emailLabel.text = Auth.auth().currentUser?.email
+    }
+    
     // MARK: - Helper
     func anchorElements() {
         view.addSubview(headerView)
@@ -62,15 +67,20 @@ class MeVC: UIViewController {
     
     // MARK: - Selector
     @objc func logOutPressed() {
-        do {
-            try Auth.auth().signOut()
-            let vc = SignUpVC()
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            present(nav, animated: true)
-        } catch {
-            print(error)
+        let logoutPopup = UIAlertController(title: "Logout?", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { (buttonTapped) in
+            do {
+                try Auth.auth().signOut()
+                let vc = SignUpVC()
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+            } catch {
+                print(error)
+            }
         }
+        logoutPopup.addAction(logoutAction)
+        present(logoutPopup, animated: true)
     }
 }
 

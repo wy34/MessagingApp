@@ -37,6 +37,11 @@ class PostVC: UIViewController {
         sendButton.bindToKeyboard()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.userEmailLabel.text = Auth.auth().currentUser?.email
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
