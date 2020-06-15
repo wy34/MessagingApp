@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let resuseIdentifier = "CreateGroupCell"
 
@@ -96,7 +97,20 @@ class CreateGroupVC: UIViewController {
     }
     
     @objc func doneBtnClicked() {
-        
+        if titleTextField.text != "" && descriptionTextField.text != "" {
+            DataService.instance.getIds(forUsernames: chosenUserArray) { idsArray in
+                var userIds = idsArray
+                userIds.append(Auth.auth().currentUser!.uid)
+                
+                DataService.instance.createGroup(withTitle: self.titleTextField.text!, andDescription: self.descriptionTextField.text!, forUserIds: userIds) { groupCreated in
+                    if groupCreated {
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        print("Group could not be created, Try again")
+                    }
+                }
+            }
+        }
     }
     
     @objc func textFieldDidChange() {
