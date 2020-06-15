@@ -12,6 +12,8 @@ private let resuseIdentifier = "CreateGroupCell"
 
 class CreateGroupVC: UIViewController {
     // MARK: - Properties
+    var emailArray = [String]()
+    
     private var headerView = UIView.createHeaderView(withTitle: "_newgroup")
     private lazy var xButton = UIButton.createButton(withTitle: "", ofColor: .clear, backgroundColor: .clear, image: #imageLiteral(resourceName: "close"), vc: self, selector: #selector(xBtnClicked))
     
@@ -26,14 +28,20 @@ class CreateGroupVC: UIViewController {
     private let descriptionLabel = UILabel.createLabel(withText: "DESCRIPTION", ofSize: 10, ofColor: #colorLiteral(red: 0.5607843137, green: 0.8117647059, blue: 0.3058823529, alpha: 1), ofAlignment: .center)
     private let descriptionTextField = UITextField.createTextField(withPlaceholderOf: "give your group a description")
     private let addEmailLabel = UILabel.createLabel(withText: "add people to your group", ofSize: 16, ofColor: #colorLiteral(red: 0.5607843137, green: 0.8117647059, blue: 0.3058823529, alpha: 1), ofAlignment: .center)
-    private let addEmailTextField = UITextField.createTextField(withPlaceholderOf: "enter an email...")
-    private let createGroupTable = UITableView.createBasicTableView(reuseId: resuseIdentifier)
+    
+    private let addEmailTextField: UITextField = {
+        let tf = UITextField.createTextField(withPlaceholderOf: "enter an email...")
+        tf.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        return tf
+    }()
+    
+    private let createGroupTable = UITableView.createBasicTableView(withCellClass: CreateGroupCell.self, reuseId: resuseIdentifier)
     
     private lazy var inputStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [titleLabel, titleTextField, descriptionLabel, descriptionTextField, addEmailLabel, addEmailTextField])
         stack.axis = .vertical
         stack.distribution = .fillProportionally
-        stack.spacing = -3
+        stack.spacing = 0
         return stack
     }()
     
@@ -41,7 +49,7 @@ class CreateGroupVC: UIViewController {
         let stack = UIStackView(arrangedSubviews: [inputStack, createGroupTable])
         stack.axis = .vertical
         stack.distribution = .fillProportionally
-        stack.spacing = 15
+        stack.spacing = 30
         return stack
     }()
     
@@ -71,9 +79,9 @@ class CreateGroupVC: UIViewController {
         view.addSubview(addGroupStack)
         addGroupStack.anchor(top: headerView.bottomAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingRight: 20, paddingBottom: 30, paddingLeft: 20)
         createGroupTable.setDimension(height: view.heightAnchor, heightMultiplier: 0.55)
-        titleTextField.setDimension(height: addGroupStack.heightAnchor, heightMultiplier: 0.07)
-        descriptionTextField.setDimension(height: addGroupStack.heightAnchor, heightMultiplier: 0.07)
-        addEmailTextField.setDimension(height: addGroupStack.heightAnchor, heightMultiplier: 0.07)
+        titleTextField.setDimension(height: addGroupStack.heightAnchor, heightMultiplier: 0.06)
+        descriptionTextField.setDimension(height: addGroupStack.heightAnchor, heightMultiplier: 0.06)
+        addEmailTextField.setDimension(height: addGroupStack.heightAnchor, heightMultiplier: 0.06)
     }
     
     // MARK: - Selectors
@@ -84,17 +92,35 @@ class CreateGroupVC: UIViewController {
     @objc func doneBtnClicked() {
         
     }
+    
+    @objc func textFieldDidChange() {
+        if addEmailTextField.text == "" {
+            emailArray = []
+            createGroupTable.reloadData()
+        } else {
+            DataService.instance.getEmail(forSearchQuery: addEmailTextField.text!) { (returnedEmailArray) in
+                self.emailArray = returnedEmailArray
+                self.createGroupTable.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: - UITableview delegate methods
 extension CreateGroupVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return emailArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: resuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: resuseIdentifier, for: indexPath) as! CreateGroupCell
+        let image = UIImage(named: "defaultProfileImage")
+        cell.configureCell(profileImage: image!, email: emailArray[indexPath.row], isSelected: false)
         return cell
     }
 }
 
+// MARK: - UITextFieldDelegate methods
+extension CreateGroupVC: UITextFieldDelegate {
+    
+}

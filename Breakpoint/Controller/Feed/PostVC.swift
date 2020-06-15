@@ -22,7 +22,6 @@ class PostVC: UIViewController {
         tv.textColor = #colorLiteral(red: 0.01568627451, green: 0.6705882353, blue: 0.7725490196, alpha: 1)
         tv.font = UIFont(name: "Menlo", size: 20)
         tv.backgroundColor = .clear
-        tv.backgroundColor = .red
         return tv
     }()
     
