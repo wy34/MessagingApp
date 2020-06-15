@@ -13,7 +13,8 @@ private let resuseIdentifier = "CreateGroupCell"
 class CreateGroupVC: UIViewController {
     // MARK: - Properties
     var emailArray = [String]()
-    
+    var chosenUserArray = [String]()
+ 
     private var headerView = UIView.createHeaderView(withTitle: "_newgroup")
     private lazy var xButton = UIButton.createButton(withTitle: "", ofColor: .clear, backgroundColor: .clear, image: #imageLiteral(resourceName: "close"), vc: self, selector: #selector(xBtnClicked))
     
@@ -60,6 +61,11 @@ class CreateGroupVC: UIViewController {
         createGroupTable.delegate = self
         createGroupTable.dataSource = self
         view.backgroundColor = #colorLiteral(red: 0.2549019608, green: 0.2705882353, blue: 0.3137254902, alpha: 1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        doneButton.isHidden = true
     }
     
     // MARK: - Helper
@@ -114,9 +120,34 @@ extension CreateGroupVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: resuseIdentifier, for: indexPath) as! CreateGroupCell
+        cell.selectionStyle = .none
         let image = UIImage(named: "defaultProfileImage")
-        cell.configureCell(profileImage: image!, email: emailArray[indexPath.row], isSelected: false)
+        
+        if chosenUserArray.contains(emailArray[indexPath.row]) {
+             cell.configureCell(profileImage: image!, email: emailArray[indexPath.row], isSelected: true)
+        } else {
+             cell.configureCell(profileImage: image!, email: emailArray[indexPath.row], isSelected: false)
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? CreateGroupCell else { return }
+        
+        if !chosenUserArray.contains(cell.emailLabel.text!) {
+            chosenUserArray.append(cell.emailLabel.text!)
+            addEmailLabel.text = chosenUserArray.joined(separator: ", ")
+            doneButton.isHidden = false
+        } else {
+            chosenUserArray = chosenUserArray.filter({ $0 != cell.emailLabel.text! })
+            if chosenUserArray.count >= 1 {
+                addEmailLabel.text = chosenUserArray.joined(separator: ", ")
+            } else {
+                addEmailLabel.text = "add people to your group"
+                doneButton.isHidden = true
+            }
+        }
     }
 }
 

@@ -10,19 +10,25 @@ import UIKit
 
 class CreateGroupCell: UITableViewCell {
     // MARK: - Properties
+    var showing = false
+    
     private let addedUserImage: UIImageView = {
         let iv = UIImageView.createImageView(withImage: #imageLiteral(resourceName: "defaultProfileImage"))
         iv.contentMode = .scaleAspectFit
         return iv
     }()
     
-    private let emailLabel: UILabel = {
+    private let _emailLabel: UILabel = {
         let label = UILabel.createLabel(withText: "user@breakpoint.com", ofSize: 18, ofColor: #colorLiteral(red: 0.5607843137, green: 0.8117647059, blue: 0.3058823529, alpha: 1))
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
     private let checkedImage = UIImageView.createImageView(withImage: #imageLiteral(resourceName: "whiteCheckmark"))
+    
+    var emailLabel: UILabel {
+        return self._emailLabel
+    }
     
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,6 +44,15 @@ class CreateGroupCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        if selected {
+            if showing == false {
+                checkedImage.isHidden = false
+                showing.toggle()
+            } else {
+                checkedImage.isHidden = true
+                showing.toggle()
+            }
+        }
     }
     
     // MARK: - Helper
@@ -46,9 +61,9 @@ class CreateGroupCell: UITableViewCell {
         addedUserImage.setDimension(height: widthAnchor, width: widthAnchor, heightMultiplier: 0.18, widthMultiplier: 0.18)
         addedUserImage.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, paddingTop: 10, paddingBottom: 10, paddingLeft: 10)
         
-        addSubview(emailLabel)
-        emailLabel.setDimension(width: widthAnchor, widthMultiplier: 0.6)
-        emailLabel.centerWithConstant(x: centerXAnchor, y: centerYAnchor, xPadding: 20)
+        addSubview(_emailLabel)
+        _emailLabel.setDimension(width: widthAnchor, widthMultiplier: 0.6)
+        _emailLabel.centerWithConstant(x: centerXAnchor, y: centerYAnchor, xPadding: 20)
         
         addSubview(checkedImage)
         checkedImage.setDimension(height: widthAnchor, width: widthAnchor, heightMultiplier: 0.06, widthMultiplier: 0.06)
