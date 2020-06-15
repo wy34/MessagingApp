@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3D44ED6B249803D500DB8418 /* GroupVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44ED6A249803D500DB8418 /* GroupVCCell.swift */; };
 		3D44ED6D24980C3000DB8418 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44ED6C24980C3000DB8418 /* Group.swift */; };
+		3D44ED6F2498165400DB8418 /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44ED6E2498165400DB8418 /* GroupFeedVC.swift */; };
+		3D44ED712498197900DB8418 /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44ED702498197900DB8418 /* GroupFeedCell.swift */; };
 		3D56751E2493FF1A0051BD15 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56751D2493FF1A0051BD15 /* AuthService.swift */; };
 		3D56752024946B550051BD15 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56751F24946B550051BD15 /* UITableView.swift */; };
 		3D56752324946F4B0051BD15 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56752224946F4B0051BD15 /* MeVC.swift */; };
@@ -41,6 +43,8 @@
 		163A7A25A93D3287FDB39209 /* Pods-Breakpoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breakpoint.release.xcconfig"; path = "Target Support Files/Pods-Breakpoint/Pods-Breakpoint.release.xcconfig"; sourceTree = "<group>"; };
 		3D44ED6A249803D500DB8418 /* GroupVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVCCell.swift; sourceTree = "<group>"; };
 		3D44ED6C24980C3000DB8418 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		3D44ED6E2498165400DB8418 /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
+		3D44ED702498197900DB8418 /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
 		3D56751D2493FF1A0051BD15 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3D56751F24946B550051BD15 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		3D56752224946F4B0051BD15 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			children = (
 				3DBE3D102491D43E00187A19 /* GroupsVC.swift */,
 				3D7153B22496B49600FB7923 /* CreateGroupVC.swift */,
+				3D44ED6E2498165400DB8418 /* GroupFeedVC.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				3DA7ECFD24957CB5000311E5 /* FeedCell.swift */,
 				3D7153B42496C58500FB7923 /* CreateGroupCell.swift */,
 				3D44ED6A249803D500DB8418 /* GroupVCCell.swift */,
+				3D44ED702498197900DB8418 /* GroupFeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,12 +355,14 @@
 				3DBE3CF42491D28300187A19 /* AppDelegate.swift in Sources */,
 				3DBE3CF62491D28300187A19 /* SceneDelegate.swift in Sources */,
 				3D7153B52496C58500FB7923 /* CreateGroupCell.swift in Sources */,
+				3D44ED712498197900DB8418 /* GroupFeedCell.swift in Sources */,
 				3D56752324946F4B0051BD15 /* MeVC.swift in Sources */,
 				3DBE3D112491D43E00187A19 /* GroupsVC.swift in Sources */,
 				3DBE3D0F2491D43300187A19 /* FeedVC.swift in Sources */,
 				3DBE3D4C2492D85300187A19 /* UITextField.swift in Sources */,
 				3D44ED6D24980C3000DB8418 /* Group.swift in Sources */,
 				3D567527249483930051BD15 /* UIImageView.swift in Sources */,
+				3D44ED6F2498165400DB8418 /* GroupFeedVC.swift in Sources */,
 				3D56752024946B550051BD15 /* UITableView.swift in Sources */,
 				3DA7ECFE24957CB5000311E5 /* FeedCell.swift in Sources */,
 			);

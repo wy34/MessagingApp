@@ -70,4 +70,10 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
         cell.configureCell(title: group.groupTitle, description: group.groupDescription, memberCount: group.memberCount)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vcToGoTo = GroupFeedVC()
+        vcToGoTo.modalPresentationStyle = .fullScreen
+        present(vcToGoTo, animated: true)
+    }
 }
