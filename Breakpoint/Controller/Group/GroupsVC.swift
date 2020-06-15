@@ -12,9 +12,10 @@ private let reuseIdentifier = "GroupCellIdentifier"
 
 class GroupsVC: UIViewController {
     // MARK: - Properties
+    var groupsArray = [Group]()
     private let headerView = UIView.createHeaderView(withTitle: "_groups")
     private lazy var addGroupBtn = UIButton.createButton(withTitle: "", backgroundColor: .clear, image: #imageLiteral(resourceName: "addNewIcon"), vc: self, selector: #selector(addBtnPressed))
-    private let groupTable = UITableView.createBasicTableView(reuseId: reuseIdentifier)
+    private let groupTable = UITableView.createBasicTableView(withCellClass: GroupVCCell.self, reuseId: reuseIdentifier)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -22,6 +23,17 @@ class GroupsVC: UIViewController {
         anchorElements()
         groupTable.delegate = self
         groupTable.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
+            DataService.instance.getAllGroups { (returnedGroupsArray) in
+                self.groupsArray = returnedGroupsArray
+                self.groupTable.reloadData()
+            }
+        }
     }
     
     // MARK: - Helper
@@ -49,12 +61,13 @@ class GroupsVC: UIViewController {
 // MARK: - UITableview delegate methods
 extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return groupsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! GroupVCCell
+        let group = groupsArray[indexPath.row]
+        cell.configureCell(title: group.groupTitle, description: group.groupDescription, memberCount: group.memberCount)
         return cell
     }
 }
